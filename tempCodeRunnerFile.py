@@ -1,1 +1,0 @@
-csvreader = csv.reader(file)
