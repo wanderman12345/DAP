@@ -9,6 +9,7 @@ from ValidationData import *
 file = open("/Users/mathewraju/Desktop/CustomerWatchTime_04072020.csv")
 csvreader = csv.reader(file)
 header = []
+errors = []
 header = next(csvreader)
 unique = set()
 error = False
@@ -26,11 +27,11 @@ for row in csvreader:
         checkEndWatchTime(row)
         checkCustomerAge(row)
 
-    except ValueError:
+    except ValueError as e:
         error = True
         writer.writerow(row)
+        errors.append(str(e))
 
-        print(row)
         print("This row has invalid value(s) and will be sent to ActiveMQ")
 
 
@@ -43,7 +44,7 @@ for row in csvreader:
 if error:
         fileWrite.close()
         fileWrite = open('Error.csv', 'r')
-        sendMessageActiveMQ(fileWrite)
+        sendMessageActiveMQ(fileWrite, errors)
 
 
 
