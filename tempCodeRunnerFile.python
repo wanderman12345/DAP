@@ -1,0 +1,6 @@
+import SqlConnect as util 
+
+conn = util.get_connection()
+mysql_cursor = conn.cursor()
+mysql_cursor.execute("CREATE DATABASE SEDAP")
+util.close_connection(conn)

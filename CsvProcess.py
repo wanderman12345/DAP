@@ -1,5 +1,6 @@
 import csv
 from multiprocessing.sharedctypes import Value
+from InsertQuerySQL import *
 from ActiveMQConnect import *
 from ValidationData import *
 
@@ -36,8 +37,8 @@ for row in csvreader:
 
     else:
         # If all data is valid then send each row to mySQL server
-        pass
-
+        insertData(row)
+        checkData()
 
 if error:
         fileWrite.close()
