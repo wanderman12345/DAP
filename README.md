@@ -1,6 +1,6 @@
 # Data Analytics Platform
 
-Has been inspired from a similar MediaCompSys project analyzing customer watch time data.
+Has been inspired from a similar MediaCompSys project analyzing customer watch time data. Working with various technologies including a messaging query system called ActiveMQ and a database MYSQL.
 
 ## Details
 
